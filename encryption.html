@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secret Codes & Encryption | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="binary-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="activities.html" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="cybersecurity.html" class="nav-link"><span>About Cyber</span></a></li>
+        <li><a href="about_beattie.html" class="nav-link"><span>About Beattie</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Activity 6: Top Secret Messages</div>
+          <h2 class="section-title">Secret Codes & Encryption!</h2>
+          <p class="section-subtitle">
+            Want to send secret messages like a spy? This activity is all about encryption, which is how we turn normal messages into secret codes that only special people can read. You'll use a classic code-making method (called a Caesar cipher) to encrypt and decrypt messages. It's like magic, but it's really just clever math!
+          </p>
+        </div>
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Caesar Cipher</h3>
+            <label for="encryption-input" class="label">Message</label>
+            <textarea id="encryption-input" class="input" rows="3"></textarea>
+            <label for="encryption-shift" class="label">Shift (1-25)</label>
+            <input id="encryption-shift" type="number" class="input" value="3" min="1" max="25" />
+            <div class="button-row">
+              <button id="encrypt-btn" class="button">Encrypt</button>
+              <button id="decrypt-btn" class="button secondary">Decrypt</button>
+            </div>
+            <label for="encryption-output" class="label">Result</label>
+            <textarea id="encryption-output" class="input" rows="3" readonly></textarea>
+          </article>
+        </div>
+        <div class="hero-actions" style="margin-top: 30px;">
+            <a href="xss_challenge.html" class="btn-ghost">Previous Activity</a>
+            <a href="linux_terminal.html" class="btn-primary" id="next-activity-btn">Next Activity: Linux Terminal Basics</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    Cybersecurity protects people, not just computers. Keep exploring, stay
+    curious, and use your skills to help others stay safe online.
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="encryption.js"></script>
+</body>
+</html>

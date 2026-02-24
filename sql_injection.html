@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SQL Injection | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="binary-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="activities.html" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="cybersecurity.html" class="nav-link"><span>About Cyber</span></a></li>
+        <li><a href="about_beattie.html" class="nav-link"><span>About Beattie</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Activity 4: The Secret Knock</div>
+          <h2 class="section-title">SQL Injection Challenge!</h2>
+          <p class="section-subtitle">
+            Imagine you have a secret knock to get into a club, but what if someone figures out a "master knock" that works for everyone? That's kind of what SQL Injection is! You'll try to trick a pretend login screen to let you in without the right password. This shows how important it is for websites to be built securely! (No real websites or data are involved, just a fun demo!)
+          </p>
+        </div>
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Bypass Login</h3>
+            <label for="sql-username" class="label">Username</label>
+            <input id="sql-username" type="text" class="input" value="admin" />
+            <label for="sql-password" class="label">Password</label>
+            <input id="sql-password" type="password" class="input" value="password" />
+            <button id="sql-login-btn" class="button">Login</button>
+            <div id="sql-result" class="result"></div>
+          </article>
+        </div>
+        <div class="hero-actions" style="margin-top: 30px;">
+            <a href="secure_or_not_quiz.html" class="btn-ghost">Previous Activity</a>
+            <a href="xss_challenge.html" class="btn-primary" id="next-activity-btn">Next Activity: XSS Challenge</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    Cybersecurity protects people, not just computers. Keep exploring, stay
+    curious, and use your skills to help others stay safe online.
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="sql_injection.js"></script>
+</body>
+</html>

@@ -1,6 +1,16 @@
 // Binary background animation
 const binaryBg = document.querySelector(".binary-bg");
 
+// Function to save activity completion status
+function saveCompletionStatus(activityId, isCompleted) {
+  localStorage.setItem(activityId, isCompleted ? "completed" : "pending");
+}
+
+// Function to get activity completion status
+function getCompletionStatus(activityId) {
+  return localStorage.getItem(activityId) === "completed";
+}
+
 if (binaryBg) {
   const columns = 32;
   const rows = 26;

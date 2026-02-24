@@ -23,13 +23,11 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html#activities" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="activities.html" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="cybersecurity.html" class="nav-link"><span>About Cyber</span></a></li>
+        <li><a href="about_beattie.html" class="nav-link"><span>About Beattie</span></a></li>
         <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
         <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
-        <li><a href="index.html#top" class="nav-cta">
-          <span class="nav-cta-dot"></span>
-          <span>Start Exploring</span>
-        </a></li>
       </ul>
     </div>
   </nav>
@@ -52,9 +50,9 @@
             companies every day.
           </p>
           <div class="hero-actions">
-            <button class="btn-primary" onclick="document.getElementById('activities').scrollIntoView({behavior: 'smooth'})">
+            <a href="activities.html" class="btn-primary">
               Try the activities
-            </button>
+            </a>
             <a href="careers.html" class="btn-ghost">See cyber careers</a>
           </div>
         </div>
@@ -70,74 +68,6 @@
         </aside>
       </section>
 
-      <!-- Activities Section -->
-      <section id="activities" class="section">
-        <div class="section-header">
-          <div class="section-eyebrow">Interactive lab</div>
-          <h2 class="section-title">Try these cyber challenges</h2>
-          <p class="section-subtitle">
-            Use pretend information only. Never type real passwords or private
-            details into practice tools.
-          </p>
-        </div>
-        <div class="cards-grid">
-          <!-- Password Strength Card -->
-          <article class="card">
-            <h3>Password Strength Tester</h3>
-            <p>
-              Type a pretend password (not a real one!) to see how strong it
-              is and how long a computer might need to guess it.
-            </p>
-            <label for="password-input" class="label">Pretend password</label>
-            <input
-              id="password-input"
-              type="text"
-              class="input"
-              maxlength="40"
-              autocomplete="off"
-            />
-            <button id="password-check-btn" class="button">
-              Check strength
-            </button>
-            <div id="password-result" class="result"></div>
-          </article>
-
-          <!-- Phishing Detective Card -->
-          <article class="card">
-            <h3>Phishing Email Detective</h3>
-            <p>
-              Read the message and decide: is this email safe or a phishing
-              scam trying to trick you?
-            </p>
-            <div id="phishing-message" class="phishing-message"></div>
-            <div class="button-row">
-              <button data-answer="safe" class="button secondary">
-                Looks safe
-              </button>
-              <button data-answer="phishing" class="button danger">
-                Looks like phishing
-              </button>
-            </div>
-            <div id="phishing-feedback" class="result"></div>
-            <button id="next-phishing" class="link-button">
-              New email example
-            </button>
-          </article>
-
-          <!-- Quiz Card -->
-          <article class="card">
-            <h3>Secure or Not? Quiz</h3>
-            <p>
-              For each situation, choose the most secure option. Can you get a
-              perfect score?
-            </p>
-            <ol id="quiz-list" class="quiz-list"></ol>
-            <button id="grade-quiz" class="button">Check my answers</button>
-            <div id="quiz-result" class="result"></div>
-          </article>
-        </div>
-      </section>
-
       <footer class="page-footer">
         Cybersecurity protects people, not just computers. Keep exploring, stay
         curious, and use your skills to help others stay safe online.
@@ -146,6 +76,5 @@
   </div>
 
   <script src="common.js"></script>
-  <script src="activities.js"></script>
 </body>
 </html>

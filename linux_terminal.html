@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Linux Terminal Adventures | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="binary-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="activities.html" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="cybersecurity.html" class="nav-link"><span>About Cyber</span></a></li>
+        <li><a href="about_beattie.html" class="nav-link"><span>About Beattie</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Activity 7: Command Line Explorer</div>
+          <h2 class="section-title">Linux Terminal Adventures!</h2>
+          <p class="section-subtitle">
+            Ready to explore the secret language of computers? This activity lets you try out a Linux Terminal, which is like talking directly to a computer using special commands instead of clicking buttons. You'll learn some basic commands that real cybersecurity pros use every day. It's like being a digital explorer, discovering what's inside a computer's brain!
+          </p>
+        </div>
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Simulated Terminal</h3>
+            <div class="terminal">
+              <div class="terminal-output" id="terminal-output">Welcome to the simulated Linux terminal. Type 'help' for commands.</div>
+              <div class="terminal-input-wrapper">
+                <span class="prompt">$</span> <input type="text" id="terminal-input" class="terminal-input" />
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="hero-actions" style="margin-top: 30px;">
+            <a href="encryption.html" class="btn-ghost">Previous Activity</a>
+            <a href="activities.html" class="btn-primary" id="next-activity-btn">Finish Module</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    Cybersecurity protects people, not just computers. Keep exploring, stay
+    curious, and use your skills to help others stay safe online.
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="linux_terminal.js"></script>
+</body>
+</html>
