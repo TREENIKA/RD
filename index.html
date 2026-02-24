@@ -1,1089 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Explore the World of Cybersecurity</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      :root {
-        --bg-main: #040612;
-        --bg-elevated: #0b1020;
-        --bg-elevated-soft: #101426;
-        --accent-green: #00ff9d;
-        --accent-blue: #31c3ff;
-        --accent-purple: #a855ff;
-        --text-main: #f6f7ff;
-        --text-muted: #a5acc7;
-        --danger: #ff4b81;
-        --border-subtle: rgba(255, 255, 255, 0.08);
-        --radius-lg: 18px;
-        --radius-md: 12px;
-        --radius-pill: 999px;
-        --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
-        --transition-fast: 0.18s ease-out;
-        --transition-med: 0.28s ease-out;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        min-height: 100vh;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        color: var(--text-main);
-        background:
-          radial-gradient(
-            circle at top left,
-            rgba(0, 255, 157, 0.12),
-            transparent 55%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(49, 195, 255, 0.12),
-            transparent 55%
-          ),
-          radial-gradient(
-            circle at bottom,
-            rgba(168, 85, 255, 0.16),
-            transparent 55%
-          ),
-          var(--bg-main);
-        padding-bottom: 64px;
-        overflow-x: hidden;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .page-shell {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 20px 20px 40px;
-        position: relative;
-        z-index: 1;
-      }
-
-      .binary-bg {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        background: radial-gradient(
-          circle at top,
-          rgba(49, 195, 255, 0.22),
-          transparent 55%
-        );
-        overflow: hidden;
-        opacity: 0.55;
-        mix-blend-mode: screen;
-      }
-
-      .binary-column {
-        position: absolute;
-        top: -120vh;
-        width: 40px;
-        color: rgba(0, 255, 157, 0.7);
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-          "Liberation Mono", "Courier New", monospace;
-        font-size: 14px;
-        line-height: 1.2;
-        white-space: pre;
-        text-shadow: 0 0 6px rgba(0, 255, 157, 0.8);
-        animation-name: binary-fall;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-      }
-
-      @keyframes binary-fall {
-        to {
-          transform: translateY(220vh);
-        }
-      }
-
-      .top-nav {
-        position: sticky;
-        top: 0;
-        z-index: 40;
-        backdrop-filter: blur(18px);
-        background: linear-gradient(
-          to bottom,
-          rgba(4, 6, 18, 0.96),
-          rgba(4, 6, 18, 0.75),
-          transparent
-        );
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        margin: -20px -20px 24px;
-        padding: 16px 20px 12px;
-      }
-
-      .top-nav-inner {
-        max-width: 1120px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .brand-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 12px;
-        background: radial-gradient(
-          circle at 30% 30%,
-          var(--accent-green),
-          var(--accent-blue)
-        );
-        box-shadow:
-          0 0 18px rgba(0, 255, 157, 0.55),
-          0 0 40px rgba(49, 195, 255, 0.4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 800;
-        font-size: 17px;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-      }
-
-      .brand-text {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .brand-title {
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        font-size: 13px;
-        text-transform: uppercase;
-        color: var(--accent-green);
-      }
-
-      .brand-subtitle {
-        font-size: 12px;
-        color: var(--text-muted);
-      }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: var(--text-muted);
-      }
-
-      .nav-link {
-        position: relative;
-        padding-bottom: 4px;
-      }
-
-      .nav-link span {
-        transition: color var(--transition-fast);
-      }
-
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0;
-        height: 2px;
-        border-radius: 999px;
-        background: linear-gradient(
-          90deg,
-          var(--accent-green),
-          var(--accent-blue)
-        );
-        transition: width var(--transition-fast);
-      }
-
-      .nav-link:hover span {
-        color: var(--accent-green);
-      }
-
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
-      .nav-cta {
-        padding: 8px 16px;
-        border-radius: var(--radius-pill);
-        border: 1px solid rgba(0, 255, 157, 0.4);
-        background: radial-gradient(
-          circle at 0 0,
-          rgba(0, 255, 157, 0.2),
-          transparent 55%
-        );
-        color: var(--accent-green);
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .nav-cta-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 999px;
-        background: var(--accent-green);
-        box-shadow: 0 0 8px rgba(0, 255, 157, 0.9);
-        animation: pulse 1.3s infinite alternate;
-      }
-
-      @keyframes pulse {
-        from {
-          transform: scale(0.9);
-          opacity: 0.7;
-        }
-        to {
-          transform: scale(1.15);
-          opacity: 1;
-        }
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.3fr);
-        gap: 28px;
-        align-items: center;
-        margin-top: 12px;
-        margin-bottom: 32px;
-      }
-
-      .hero-main {
-        background: radial-gradient(
-            circle at top left,
-            rgba(0, 255, 157, 0.16),
-            transparent 60%
-          ),
-          rgba(7, 10, 30, 0.92);
-        border-radius: 28px;
-        padding: 26px 26px 24px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: var(--shadow-soft);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero-main::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: linear-gradient(
-          120deg,
-          rgba(0, 255, 157, 0.13) 0,
-          transparent 18%,
-          transparent 82%,
-          rgba(49, 195, 255, 0.13) 100%
-        );
-        mix-blend-mode: soft-light;
-        opacity: 0.9;
-        pointer-events: none;
-      }
-
-      .hero-tagline {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 4px 8px;
-        border-radius: var(--radius-pill);
-        background: rgba(2, 6, 23, 0.75);
-        border: 1px solid rgba(0, 255, 157, 0.25);
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        position: relative;
-        z-index: 1;
-      }
-
-      .hero-title {
-        margin-top: 16px;
-        font-size: clamp(26px, 4vw, 32px);
-        line-height: 1.15;
-        font-weight: 700;
-        position: relative;
-        z-index: 1;
-      }
-
-      .hero-title span {
-        background: linear-gradient(
-          120deg,
-          var(--accent-green),
-          var(--accent-blue),
-          var(--accent-purple)
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .hero-body {
-        margin-top: 10px;
-        font-size: 14px;
-        color: var(--text-muted);
-        max-width: 520px;
-        position: relative;
-        z-index: 1;
-      }
-
-      .hero-actions {
-        margin-top: 18px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        position: relative;
-        z-index: 1;
-      }
-
-      .btn-primary {
-        padding: 10px 18px;
-        border-radius: var(--radius-pill);
-        border: none;
-        background: linear-gradient(
-          135deg,
-          var(--accent-green),
-          var(--accent-blue)
-        );
-        color: #020617;
-        font-size: 13px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        cursor: pointer;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-        transition: transform var(--transition-fast),
-          box-shadow var(--transition-fast);
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.75);
-      }
-
-      .btn-ghost {
-        padding: 10px 16px;
-        border-radius: var(--radius-pill);
-        border: 1px solid rgba(156, 163, 175, 0.5);
-        background: rgba(7, 10, 30, 0.75);
-        color: var(--text-muted);
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        cursor: pointer;
-      }
-
-      .hero-side {
-        background: rgba(4, 6, 18, 0.9);
-        border-radius: 24px;
-        padding: 18px 18px 16px;
-        border: 1px solid rgba(148, 163, 184, 0.35);
-        box-shadow: var(--shadow-soft);
-      }
-
-      .hero-side-title {
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: var(--text-muted);
-        margin-bottom: 10px;
-      }
-
-      .hero-side-list {
-        list-style: none;
-        display: grid;
-        gap: 8px;
-        font-size: 13px;
-        color: var(--text-muted);
-      }
-
-      .hero-side-list li::before {
-        content: "•";
-        margin-right: 6px;
-        color: var(--accent-blue);
-      }
-
-      .section {
-        margin-bottom: 32px;
-      }
-
-      .section-header {
-        margin-bottom: 14px;
-      }
-
-      .section-eyebrow {
-        font-size: 11px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--accent-green);
-        margin-bottom: 4px;
-      }
-
-      .section-title {
-        font-size: 20px;
-        font-weight: 600;
-      }
-
-      .section-subtitle {
-        font-size: 14px;
-        color: var(--text-muted);
-        max-width: 520px;
-      }
-
-      .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 18px;
-      }
-
-      .card {
-        background: radial-gradient(
-            circle at top,
-            rgba(49, 195, 255, 0.18),
-            transparent 55%
-          ),
-          var(--bg-elevated);
-        border-radius: var(--radius-lg);
-        padding: 14px 14px 16px;
-        border: 1px solid var(--border-subtle);
-        box-shadow: var(--shadow-soft);
-      }
-
-      .card h3 {
-        margin-bottom: 6px;
-        font-size: 16px;
-      }
-
-      .card p {
-        font-size: 13px;
-        color: var(--text-muted);
-      }
-
-      .label {
-        display: block;
-        margin-top: 10px;
-        margin-bottom: 4px;
-        font-size: 12px;
-        color: var(--text-muted);
-      }
-
-      .input {
-        width: 100%;
-        padding: 8px 10px;
-        border-radius: 10px;
-        border: 1px solid rgba(148, 163, 184, 0.6);
-        background: rgba(15, 23, 42, 0.9);
-        color: var(--text-main);
-        font-size: 13px;
-      }
-
-      .input:focus {
-        outline: 2px solid rgba(49, 195, 255, 0.9);
-        outline-offset: 1px;
-      }
-
-      .button {
-        margin-top: 8px;
-        padding: 8px 14px;
-        border-radius: var(--radius-pill);
-        border: none;
-        font-weight: 600;
-        font-size: 12px;
-        cursor: pointer;
-        background: linear-gradient(
-          135deg,
-          var(--accent-green),
-          var(--accent-blue)
-        );
-        color: #020617;
-      }
-
-      .button.secondary {
-        background: rgba(49, 195, 255, 0.18);
-        color: var(--accent-blue);
-        border: 1px solid rgba(49, 195, 255, 0.7);
-      }
-
-      .button.danger {
-        background: rgba(255, 75, 129, 0.2);
-        color: var(--danger);
-        border: 1px solid rgba(255, 75, 129, 0.8);
-      }
-
-      .button-row {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-top: 8px;
-      }
-
-      .link-button {
-        margin-top: 6px;
-        padding: 0;
-        border: none;
-        background: none;
-        color: var(--accent-blue);
-        font-size: 12px;
-        cursor: pointer;
-        text-decoration: underline;
-      }
-
-      .result {
-        margin-top: 8px;
-        font-size: 13px;
-      }
-
-      .result.good {
-        color: var(--accent-green);
-      }
-
-      .result.ok {
-        color: #facc15;
-      }
-
-      .result.bad {
-        color: var(--danger);
-      }
-
-      .phishing-message {
-        margin-top: 8px;
-        padding: 8px;
-        border-radius: 10px;
-        background: rgba(15, 23, 42, 0.95);
-        border: 1px dashed rgba(49, 195, 255, 0.6);
-        font-size: 12px;
-        white-space: pre-wrap;
-      }
-
-      .quiz-list {
-        padding-left: 18px;
-        margin-top: 6px;
-      }
-
-      .quiz-list li {
-        margin-bottom: 8px;
-        font-size: 13px;
-      }
-
-      .quiz-options {
-        margin-top: 4px;
-        display: grid;
-        gap: 2px;
-      }
-
-      .quiz-options label {
-        font-size: 12px;
-        color: var(--text-muted);
-      }
-
-      .quiz-options input {
-        margin-right: 6px;
-      }
-
-      .career-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 16px;
-      }
-
-      .career-card {
-        background: var(--bg-elevated-soft);
-        border-radius: var(--radius-md);
-        padding: 12px 14px 14px;
-        border: 1px solid var(--border-subtle);
-      }
-
-      .career-card h3 {
-        font-size: 15px;
-        margin-bottom: 4px;
-      }
-
-      .salary {
-        font-size: 13px;
-        color: var(--accent-green);
-        margin-bottom: 4px;
-      }
-
-      .career-points {
-        padding-left: 16px;
-        font-size: 12px;
-        color: var(--text-muted);
-      }
-
-      .split-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 16px;
-      }
-
-      .pill {
-        display: inline-block;
-        padding: 3px 10px;
-        border-radius: 999px;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        border: 1px solid rgba(148, 163, 184, 0.7);
-        color: var(--text-muted);
-        margin-bottom: 6px;
-      }
-
-      .pill.private {
-        border-color: rgba(0, 255, 157, 0.8);
-        color: var(--accent-green);
-      }
-
-      .pill.public {
-        border-color: rgba(49, 195, 255, 0.8);
-        color: var(--accent-blue);
-      }
-
-      .list {
-        padding-left: 18px;
-        font-size: 13px;
-        color: var(--text-muted);
-      }
-
-      .card-modal-backdrop {
-        position: fixed;
-        inset: 0;
-        background: radial-gradient(
-            circle at center,
-            rgba(15, 23, 42, 0.96),
-            rgba(15, 23, 42, 0.98)
-          );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 60;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity var(--transition-med);
-        padding: 16px;
-      }
-
-      .card-modal-backdrop.visible {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .card-modal {
-        max-width: 720px;
-        width: 100%;
-        max-height: 90vh;
-        background: var(--bg-elevated-soft);
-        border-radius: 22px;
-        border: 1px solid rgba(148, 163, 184, 0.55);
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
-        padding: 16px 16px 18px;
-        overflow: auto;
-      }
-
-      .card-modal-close {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: var(--radius-pill);
-        border: 1px solid rgba(148, 163, 184, 0.8);
-        background: rgba(15, 23, 42, 0.95);
-        color: var(--text-muted);
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        padding: 6px 10px;
-        margin-bottom: 10px;
-        cursor: pointer;
-      }
-
-      .card-modal-content > *:first-child {
-        margin-top: 0;
-      }
-
-      .card-modal-content h3 {
-        margin-top: 0;
-      }
-
-      .page-footer {
-        margin-top: 32px;
-        padding-top: 16px;
-        border-top: 1px solid rgba(148, 163, 184, 0.35);
-        font-size: 12px;
-        color: var(--text-muted);
-        text-align: center;
-      }
-
-      @media (max-width: 768px) {
-        .hero {
-          grid-template-columns: minmax(0, 1fr);
-        }
-
-        .top-nav-inner {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .nav-links {
-          flex-wrap: wrap;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="binary-bg" aria-hidden="true"></div>
-    <div class="card-modal-backdrop" aria-hidden="true">
-      <div class="card-modal">
-        <button class="card-modal-close">Close</button>
-        <div class="card-modal-content"></div>
-      </div>
-    </div>
-    <div class="page-shell">
-      <header class="top-nav">
-        <div class="top-nav-inner">
-          <div class="brand">
-            <div class="brand-icon">CY</div>
-            <div class="brand-text">
-              <span class="brand-title">Cyber Roadshow</span>
-              <span class="brand-subtitle">Explore. Protect. Level Up.</span>
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Explore the World of Cybersecurity | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="binary-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
           </div>
-          <nav class="nav-links">
-            <a href="#activities" class="nav-link"><span>Activities</span></a>
-            <a href="#careers" class="nav-link"><span>Careers</span></a>
-            <a href="#sectors" class="nav-link"
-              ><span>Public vs Private</span></a
-            >
-            <a href="#top" class="nav-cta">
-              <span class="nav-cta-dot"></span>
-              <span>Start Exploring</span>
-            </a>
-          </nav>
         </div>
-      </header>
-
-      <main id="top">
-        <section class="hero">
-          <div class="hero-main">
-            <div class="hero-tagline">
-              <span>Middle School Cyber Lab</span>
-            </div>
-            <h1 class="hero-title">
-              Explore the world of <span>cybersecurity</span> through quick,
-              hands-on activities.
-            </h1>
-            <p class="hero-body">
-              Test pretend passwords, spot scam emails, and make smart choices
-              online. Then see how real cyber jobs protect people, schools, and
-              companies every day.
-            </p>
-            <div class="hero-actions">
-              <button class="btn-primary" onclick="document.getElementById('activities').scrollIntoView({behavior: 'smooth'})">
-                Try the activities
-              </button>
-              <button class="btn-ghost" onclick="document.getElementById('careers').scrollIntoView({behavior: 'smooth'})">
-                See cyber careers
-              </button>
-            </div>
-          </div>
-
-          <aside class="hero-side">
-            <div class="hero-side-title">Why cybersecurity matters</div>
-            <ul class="hero-side-list">
-              <li>Protects your accounts, photos, and chats</li>
-              <li>Keeps schools, hospitals, and games running safely</li>
-              <li>Stops scammers from stealing money and information</li>
-              <li>Offers high-paying jobs that need problem solvers</li>
-            </ul>
-          </aside>
-        </section>
-
-        <section id="activities" class="section">
-          <div class="section-header">
-            <div class="section-eyebrow">Interactive lab</div>
-            <h2 class="section-title">Try these cyber challenges</h2>
-            <p class="section-subtitle">
-              Use pretend information only. Never type real passwords or private
-              details into practice tools.
-            </p>
-          </div>
-          <div class="cards-grid">
-            <article class="card">
-              <h3>Password Strength Tester</h3>
-              <p>
-                Type a pretend password (not a real one!) to see how strong it
-                is and how long a computer might need to guess it.
-              </p>
-              <label for="password-input" class="label">Pretend password</label>
-              <input
-                id="password-input"
-                type="text"
-                class="input"
-                maxlength="40"
-                autocomplete="off"
-              />
-              <button id="password-check-btn" class="button">
-                Check strength
-              </button>
-              <div id="password-result" class="result"></div>
-            </article>
-
-            <article class="card">
-              <h3>Phishing Email Detective</h3>
-              <p>
-                Read the message and decide: is this email safe or a phishing
-                scam trying to trick you?
-              </p>
-              <div id="phishing-message" class="phishing-message"></div>
-              <div class="button-row">
-                <button data-answer="safe" class="button secondary">
-                  Looks safe
-                </button>
-                <button data-answer="phishing" class="button danger">
-                  Looks like phishing
-                </button>
-              </div>
-              <div id="phishing-feedback" class="result"></div>
-              <button id="next-phishing" class="link-button">
-                New email example
-              </button>
-            </article>
-
-            <article class="card">
-              <h3>Secure or Not? Quiz</h3>
-              <p>
-                For each situation, choose the most secure option. Can you get a
-                perfect score?
-              </p>
-              <ol id="quiz-list" class="quiz-list"></ol>
-              <button id="grade-quiz" class="button">Check my answers</button>
-              <div id="quiz-result" class="result"></div>
-            </article>
-          </div>
-        </section>
-
-        <section id="careers" class="section">
-          <div class="section-header">
-            <div class="section-eyebrow">Cyber careers</div>
-            <h2 class="section-title">Jobs that protect the digital world</h2>
-            <p class="section-subtitle">
-              These salary ranges are rough U.S. estimates and can change over
-              time and by location.
-            </p>
-          </div>
-          <div class="career-grid">
-            <article class="career-card">
-              <h3>Cybersecurity Analyst</h3>
-              <p class="salary">Typical salary: $70,000 – $120,000 per year</p>
-              <ul class="career-points">
-                <li>Watches networks for suspicious activity and alerts.</li>
-                <li>Investigates possible attacks and helps stop them.</li>
-                <li>Sets up tools that keep computers and data safe.</li>
-              </ul>
-            </article>
-
-            <article class="career-card">
-              <h3>Penetration Tester (Ethical Hacker)</h3>
-              <p class="salary">Typical salary: $80,000 – $140,000 per year</p>
-              <ul class="career-points">
-                <li>
-                  Gets paid to try to break into systems in a legal way.
-                </li>
-                <li>Finds weaknesses before real hackers do.</li>
-                <li>Writes reports that show what to fix.</li>
-              </ul>
-            </article>
-
-            <article class="career-card">
-              <h3>Security Engineer</h3>
-              <p class="salary">Typical salary: $90,000 – $150,000 per year</p>
-              <ul class="career-points">
-                <li>Designs and builds secure systems and networks.</li>
-                <li>Chooses security tools like firewalls and encryption.</li>
-                <li>Works with developers to make apps safer.</li>
-              </ul>
-            </article>
-
-            <article class="career-card">
-              <h3>Incident Responder</h3>
-              <p class="salary">Typical salary: $75,000 – $130,000 per year</p>
-              <ul class="career-points">
-                <li>Acts quickly when an attack or data breach happens.</li>
-                <li>Figures out what went wrong and what was damaged.</li>
-                <li>
-                  Helps systems recover and prevents future attacks.
-                </li>
-              </ul>
-            </article>
-
-            <article class="career-card">
-              <h3>Security Consultant</h3>
-              <p class="salary">Typical salary: $85,000 – $150,000 per year</p>
-              <ul class="career-points">
-                <li>Advises schools, companies, or governments on staying safe.</li>
-                <li>Reviews security plans and policies.</li>
-                <li>Trains people on how to avoid cyber risks.</li>
-              </ul>
-            </article>
-
-            <article class="career-card">
-              <h3>Digital Forensics Specialist</h3>
-              <p class="salary">Typical salary: $70,000 – $130,000 per year</p>
-              <ul class="career-points">
-                <li>Collects and studies digital evidence after a cybercrime.</li>
-                <li>Works with law enforcement or companies.</li>
-                <li>Helps explain what happened using data and logs.</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        <section id="sectors" class="section">
-          <div class="section-header">
-            <div class="section-eyebrow">Where cyber is needed</div>
-            <h2 class="section-title">Public vs private sector</h2>
-            <p class="section-subtitle">
-              Cybersecurity protects both private companies and public services.
-              They work differently, but both are important.
-            </p>
-          </div>
-
-          <div class="section" style="margin-bottom: 20px">
-            <div class="split-grid">
-              <div>
-                <div class="pill private">Private sector</div>
-                <p class="section-subtitle">
-                  Businesses and organizations that sell products or services.
-                  They protect customers, money, and company data.
-                </p>
-              </div>
-              <div>
-                <div class="pill public">Public sector</div>
-                <p class="section-subtitle">
-                  Government and community services for everyone, paid for by
-                  taxes. They protect public safety and everyday life.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="split-grid">
-            <article class="card">
-              <div class="pill private">Private sector</div>
-              <h3>Banks and Online Shopping</h3>
-              <ul class="list">
-                <li>Guards your money, credit cards, and bank accounts.</li>
-                <li>Encrypts (scrambles) data when you buy things online.</li>
-                <li>Detects fake purchases and blocks stolen card use.</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="pill private">Private sector</div>
-              <h3>Gaming, Social Media, and Apps</h3>
-              <ul class="list">
-                <li>Protects player accounts, skins, and in‑game purchases.</li>
-                <li>Helps fight bullying, bots, and fake accounts.</li>
-                <li>Keeps photos, messages, and profiles safer from strangers.</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="pill private">Private sector</div>
-              <h3>Healthcare Companies and Hospitals</h3>
-              <ul class="list">
-                <li>Protects patient medical records and health information.</li>
-                <li>Keeps hospital machines and systems online.</li>
-                <li>Prevents scams that try to steal insurance or billing data.</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="pill public">Public sector</div>
-              <h3>Schools and Colleges</h3>
-              <ul class="list">
-                <li>Protects student grades, records, and personal info.</li>
-                <li>Stops hackers from shutting down online classes and tests.</li>
-                <li>Keeps school Wi‑Fi and devices safe for students and teachers.</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="pill public">Public sector</div>
-              <h3>Government and Public Safety</h3>
-              <ul class="list">
-                <li>Secures voting systems and important government data.</li>
-                <li>Helps protect military and national security systems.</li>
-                <li>Stops attacks on emergency services like 911 centers.</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="pill public">Public sector</div>
-              <h3>Power, Water, and Transportation</h3>
-              <ul class="list">
-                <li>Keeps electricity, water plants, and traffic systems running.</li>
-                <li>Protects trains, airports, and shipping from cyberattacks.</li>
-                <li>Guards sensors and smart devices that control equipment.</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="section" style="margin-top: 18px">
-            <h3 style="font-size: 14px; margin-bottom: 6px">
-              Examples of who uses cybersecurity
-            </h3>
-            <div class="split-grid">
-              <div>
-                <div class="pill private">Private companies</div>
-                <ul class="list">
-                  <li><strong>Tech and cloud:</strong> Google, Microsoft, Apple, Amazon</li>
-                  <li><strong>Banks and payments:</strong> JPMorgan Chase, Visa, PayPal</li>
-                  <li>
-                    <strong>Gaming and social media:</strong> Roblox, Epic Games,
-                    Xbox, PlayStation, YouTube, TikTok, Instagram
-                  </li>
-                  <li><strong>Health tech:</strong> hospital networks and health companies</li>
-                </ul>
-              </div>
-              <div>
-                <div class="pill public">Public organizations</div>
-                <ul class="list">
-                  <li><strong>Government agencies:</strong> local, state, and national</li>
-                  <li><strong>Public schools and colleges:</strong> districts and universities</li>
-                  <li><strong>Public safety:</strong> emergency services and courts</li>
-                  <li><strong>Infrastructure:</strong> public utilities and transit systems</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <footer class="page-footer">
-          Cybersecurity protects people, not just computers. Keep exploring, stay
-          curious, and use your skills to help others stay safe online.
-        </footer>
-      </main>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#activities" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+        <li><a href="index.html#top" class="nav-cta">
+          <span class="nav-cta-dot"></span>
+          <span>Start Exploring</span>
+        </a></li>
+      </ul>
     </div>
+  </nav>
 
-    <script src="script.js"></script>
-  </body>
+  <div class="page-shell">
+    <main id="top">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-main">
+          <div class="hero-tagline">
+            <span>Middle School Cyber Lab</span>
+          </div>
+          <h1 class="hero-title">
+            Explore the world of <span>cybersecurity</span> through quick,
+            hands-on activities.
+          </h1>
+          <p class="hero-body">
+            Test pretend passwords, spot scam emails, and make smart choices
+            online. Then see how real cyber jobs protect people, schools, and
+            companies every day.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="document.getElementById('activities').scrollIntoView({behavior: 'smooth'})">
+              Try the activities
+            </button>
+            <a href="careers.html" class="btn-ghost">See cyber careers</a>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="hero-side-title">Why cybersecurity matters</div>
+          <ul class="hero-side-list">
+            <li>Protects your accounts, photos, and chats</li>
+            <li>Keeps schools, hospitals, and games running safely</li>
+            <li>Stops scammers from stealing money and information</li>
+            <li>Offers high-paying jobs that need problem solvers</li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- Activities Section -->
+      <section id="activities" class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Interactive lab</div>
+          <h2 class="section-title">Try these cyber challenges</h2>
+          <p class="section-subtitle">
+            Use pretend information only. Never type real passwords or private
+            details into practice tools.
+          </p>
+        </div>
+        <div class="cards-grid">
+          <!-- Password Strength Card -->
+          <article class="card">
+            <h3>Password Strength Tester</h3>
+            <p>
+              Type a pretend password (not a real one!) to see how strong it
+              is and how long a computer might need to guess it.
+            </p>
+            <label for="password-input" class="label">Pretend password</label>
+            <input
+              id="password-input"
+              type="text"
+              class="input"
+              maxlength="40"
+              autocomplete="off"
+            />
+            <button id="password-check-btn" class="button">
+              Check strength
+            </button>
+            <div id="password-result" class="result"></div>
+          </article>
+
+          <!-- Phishing Detective Card -->
+          <article class="card">
+            <h3>Phishing Email Detective</h3>
+            <p>
+              Read the message and decide: is this email safe or a phishing
+              scam trying to trick you?
+            </p>
+            <div id="phishing-message" class="phishing-message"></div>
+            <div class="button-row">
+              <button data-answer="safe" class="button secondary">
+                Looks safe
+              </button>
+              <button data-answer="phishing" class="button danger">
+                Looks like phishing
+              </button>
+            </div>
+            <div id="phishing-feedback" class="result"></div>
+            <button id="next-phishing" class="link-button">
+              New email example
+            </button>
+          </article>
+
+          <!-- Quiz Card -->
+          <article class="card">
+            <h3>Secure or Not? Quiz</h3>
+            <p>
+              For each situation, choose the most secure option. Can you get a
+              perfect score?
+            </p>
+            <ol id="quiz-list" class="quiz-list"></ol>
+            <button id="grade-quiz" class="button">Check my answers</button>
+            <div id="quiz-result" class="result"></div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        Cybersecurity protects people, not just computers. Keep exploring, stay
+        curious, and use your skills to help others stay safe online.
+      </footer>
+    </main>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="activities.js"></script>
+</body>
 </html>

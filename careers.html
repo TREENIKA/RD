@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Cyber Roadshow | Careers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="binary-bg" aria-hidden="true"></div>
-    <header class="site-header">
-      <div class="container header-inner">
-        <h1 class="logo">Cyber Roadshow</h1>
-        <nav>
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="careers.html" class="nav-link active">Cyber Careers</a>
-          <a href="sectors.html" class="nav-link">Where Cyber Is Needed</a>
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <title>Cyber Careers | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="binary-bg" aria-hidden="true"></div>
 
-    <main class="container main">
-      <section class="hero small">
-        <div class="hero-text">
-          <h2>Careers in Cybersecurity</h2>
-          <p>
-            Cybersecurity jobs help protect people, schools, companies, and even
-            countries from hackers.
-          </p>
-          <p class="note">
-            Salary ranges below are rough estimates for the United States and
-            can change over time and by location.
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#activities" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+        <li><a href="index.html#top" class="nav-cta">
+          <span class="nav-cta-dot"></span>
+          <span>Start Exploring</span>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <main>
+      <!-- Hero Section -->
+      <section class="section" style="margin-bottom: 40px;">
+        <div class="section-header">
+          <div class="section-eyebrow">Cyber Careers</div>
+          <h1 class="section-title" style="font-size: 28px;">Jobs that protect the digital world</h1>
+          <p class="section-subtitle">
+            These salary ranges are rough U.S. estimates and can change over
+            time and by location.
           </p>
         </div>
       </section>
 
-      <section class="careers-grid">
+      <!-- Careers Grid -->
+      <section class="section">
+        <div class="career-grid">
         <article class="card">
           <h3>Cybersecurity Analyst</h3>
           <p class="salary">Typical salary: $70,000 – $120,000 per year</p>
@@ -94,24 +109,28 @@
             <li>Helps explain what happened using data and logs.</li>
           </ul>
         </article>
+      </div>
       </section>
 
-      <section class="next-steps">
-        <h2>How to Get Started Now</h2>
-        <ul>
+      <!-- How to Get Started -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">How to Get Started Now</h2>
+        </div>
+        <ul class="list" style="max-width: 600px;">
           <li>Learn the basics of coding with languages like Python or JavaScript.</li>
           <li>Practice safe online habits: strong passwords, updates, and thinking before you click.</li>
           <li>Join a coding or cybersecurity club at school if you can.</li>
           <li>Try beginner-friendly cybersecurity games and puzzles online.</li>
         </ul>
       </section>
-    </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p>Cyber careers are growing fast and need creative problem solvers.</p>
-      </div>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+      <footer class="page-footer">
+        Cyber careers are growing fast and need creative problem solvers like you.
+      </footer>
+    </main>
+  </div>
+
+  <script src="common.js"></script>
+</body>
 </html>
