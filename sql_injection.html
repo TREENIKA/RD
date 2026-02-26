@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SQL Injection | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode");</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-jcode="SQL Injection is one of the oldest hacks in the book — it was used to steal over 130 million credit card numbers from Heartland Payment Systems back in 2008! 😱 Understanding it is the first step to stopping it. Try the magic string!">
+  <div class="binary-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="computer_literacy.html" class="nav-link"><span>Internet Safety</span></a></li>
+        <li><a href="activities.html" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="cybersecurity.html" class="nav-link"><span>About Cyber</span></a></li>
+        <li><a href="about_beattie.html" class="nav-link"><span>About Beattie</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Activity 4: The Secret Knock</div>
+          <h2 class="section-title">SQL Injection Challenge!</h2>
+          <p class="section-subtitle">
+            Imagine you have a secret knock to get into a club, but what if someone figures out a "master knock" that works for everyone? That's kind of what SQL Injection is! You'll try to trick a pretend login screen to let you in without the right password. This shows how important it is for websites to be built securely! (No real websites or data are involved, just a fun demo!)
+          </p>
+        </div>
+
+        <div class="eli5-box">
+          <button class="eli5-toggle" aria-expanded="false">
+            🧒 ELI5 — What is SQL Injection?
+            <em class="eli5-arrow">▼</em>
+          </button>
+          <div class="eli5-body">
+            <p>Most websites store your info (like usernames and passwords) in a <strong>database</strong> — think of it like a giant spreadsheet locked in a back room.</p>
+            <p>When you log in, the website asks the database: <em>“Does this username + password match?”</em> It uses a special language called <strong>SQL</strong> to ask. SQL injection is when a hacker sneaks extra commands into that question to confuse the database.</p>
+            <p>For example, the injection string <code>' OR '1'='1</code> makes the database think: <em>“Is the password correct, OR is 1=1?”</em> Since 1 always equals 1, it always says <strong>YES</strong>, letting the hacker in!</p>
+            <p><strong>Real-world impact:</strong> SQL injection has been used to steal millions of passwords. Developers prevent it by “sanitizing input” — never trusting data typed by users.</p>
+          </div>
+        </div>
+
+        <!-- What SQL actually looks like -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-eyebrow">Under the Hood</div>
+            <h2 class="section-title">What the Database Actually Sees</h2>
+            <p class="section-subtitle">When you log in to a website, it runs a SQL query behind the scenes. Here's what a vulnerable login looks like:</p>
+          </div>
+          <div class="cards-grid cards-grid--top">
+            <article class="card">
+              <h3>😰 Vulnerable Code</h3>
+              <p>The website blindly pastes your input straight into the SQL query. This is the mistake that lets hackers in.</p>
+              <div class="code-block"><span class="comment">-- The website builds this query:</span>
+SELECT * FROM users
+WHERE username = 'admin'
+AND password = '<span class="inject">[whatever you typed]</span>'</div>
+              <p style="margin-top:10px;">Now type <code style="color:var(--danger);background:rgba(255,75,129,0.1);padding:2px 6px;border-radius:4px;">&#39; OR &#39;1&#39;=&#39;1</code> as the password and watch what happens to the query:</p>
+              <div class="code-block"><span class="comment">-- Injected version:</span>
+SELECT * FROM users
+WHERE username = 'admin'
+AND password = '<span class="inject">' OR '1'='1</span>'
+
+<span class="comment">-- The database sees this as:</span>
+<span class="comment">-- (password matches) OR (1=1) ← always true!</span>
+<span class="safe">-- Result: LOGGED IN. No password needed.</span></div>
+            </article>
+
+            <article class="card">
+              <h3>🛡️ The Safe Version</h3>
+              <p>Secure websites use <strong>parameterized queries</strong> — the data and the command are kept completely separate. Your input can never become part of the SQL command.</p>
+              <div class="code-block"><span class="comment">-- Safe: uses a placeholder (?) for input</span>
+SELECT * FROM users
+WHERE username = ?
+AND password = ?
+
+<span class="comment">-- Even if you type ' OR '1'='1</span>
+<span class="comment">-- the database treats it as literal text,</span>
+<span class="safe">-- NOT as SQL code. Attack fails. ✓</span></div>
+              <p style="margin-top:10px;">This is called <strong>input sanitization</strong> — the #1 defense against SQL injection.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Try it — injection payloads -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-eyebrow">Try These</div>
+            <h2 class="section-title">Real Injection Strings</h2>
+            <p class="section-subtitle">These are actual payloads security researchers use to test for SQL injection vulnerabilities. Try each one in the lab below.</p>
+          </div>
+          <div class="cards-grid cards-grid--top">
+            <article class="card">
+              <h3>🧪 Classic Payloads</h3>
+              <ul class="payload-list">
+                <li>
+                  <code>' OR '1'='1</code>
+                  <span class="payload-note">The classic. Makes the WHERE condition always true.</span>
+                </li>
+                <li>
+                  <code>' OR 1=1 --</code>
+                  <span class="payload-note">The <code style="color:var(--text-muted)">--</code> comments out the rest of the query. Anything after it is ignored.</span>
+                </li>
+                <li>
+                  <code>admin'--</code>
+                  <span class="payload-note">If the username is "admin", this logs in as admin by commenting out the password check entirely.</span>
+                </li>
+                <li>
+                  <code>' OR 'x'='x</code>
+                  <span class="payload-note">Works the same as 1=1 — any statement that is always true works.</span>
+                </li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>💣 Real World: The 2008 Heartland Breach</h3>
+              <p>In 2008, a hacker named Albert Gonzalez used SQL injection to break into Heartland Payment Systems. He stole over <strong>130 million credit card numbers</strong> from a single company.</p>
+              <p style="margin-top:10px;">The attack worked because Heartland's code trusted user input and put it directly into SQL queries — the exact vulnerability you just exploited in the demo.</p>
+              <p style="margin-top:10px;">Gonzalez was sentenced to <strong>20 years in federal prison</strong>. The breach cost Heartland over $140 million in settlements.</p>
+              <p style="margin-top:10px;color:var(--accent-green);font-weight:700;">One missing parameterized query. $140 million. 20 years.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- The interactive lab -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-eyebrow">Your Turn</div>
+            <h2 class="section-title">Try to Break the Login</h2>
+          </div>
+          <div class="cards-grid">
+            <article class="card">
+              <h3>🔐 Bypass Login</h3>
+              <label for="sql-username" class="label">Username</label>
+              <input id="sql-username" type="text" class="input" value="admin" />
+              <label for="sql-password" class="label">Password (try an injection string!)</label>
+              <input id="sql-password" type="password" class="input" placeholder="Try: ' OR '1'='1" />
+              <div class="button-row">
+                <button id="sql-login-btn" class="button">Login</button>
+                <button id="sql-hint-btn" class="button secondary">💡 Reveal Hint</button>
+              </div>
+              <div id="sql-hint" class="phishing-message" style="display:none">The magic payload to bypass this login is:<br><code>' OR '1'='1</code><br>Type it exactly in the password field and click Login!</div>
+              <div id="sql-result" class="result"></div>
+            </article>
+          </div>
+        </section>
+
+        <div class="hero-actions" style="margin-top: 30px;">
+          <a href="secure_or_not_quiz.html" class="btn-ghost">Previous Activity</a>
+          <a href="xss_challenge.html" class="btn-primary" id="next-activity-btn">Next Activity: XSS Challenge</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    Cybersecurity protects people, not just computers. Keep exploring, stay
+    curious, and use your skills to help others stay safe online.
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="sql_injection.js"></script>
+</body>
+</html>

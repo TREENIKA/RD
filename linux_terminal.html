@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Linux Terminal Adventures | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode");</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-jcode="Over 96% of the world's top 1 million web servers run Linux — including Google, Facebook, and NASA's systems! 🚀 Learning the terminal is like learning the native language of the internet. Start with 'help' to see your commands!">
+  <div class="binary-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="computer_literacy.html" class="nav-link"><span>Internet Safety</span></a></li>
+        <li><a href="activities.html" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="cybersecurity.html" class="nav-link"><span>About Cyber</span></a></li>
+        <li><a href="about_beattie.html" class="nav-link"><span>About Beattie</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Activity 7: Command Line Explorer</div>
+          <h2 class="section-title">Linux Terminal Adventures!</h2>
+          <p class="section-subtitle">
+            Ready to explore the secret language of computers? This activity lets you try out a Linux Terminal, which is like talking directly to a computer using special commands instead of clicking buttons. You'll learn some basic commands that real cybersecurity pros use every day. It's like being a digital explorer, discovering what's inside a computer's brain!
+          </p>
+        </div>
+
+        <div class="eli5-box">
+          <button class="eli5-toggle" aria-expanded="false">
+            🧒 ELI5 — What is Linux and why do cyber pros use it?
+            <em class="eli5-arrow">▼</em>
+          </button>
+          <div class="eli5-body">
+            <p><strong>Linux</strong> is an operating system — just like Windows or macOS — but it's free, open-source, and used by millions of servers, phones (Android is based on Linux!), and supercomputers around the world.</p>
+            <p>The <strong>terminal</strong> (or command line) lets you control the computer by typing commands instead of clicking icons. Think of it like the difference between texting instructions vs. using a touchscreen — both work, but typing is often <em>faster and more powerful</em> for experts.</p>
+            <p><strong>Commands to try:</strong><br>• <code>ls</code> — list files in the current folder<br>• <code>pwd</code> — show where you are in the file system<br>• <code>whoami</code> — print the current user<br>• <code>mkdir myfolder</code> — create a new folder<br>• <code>cat notes.txt</code> — read a file</p>
+            <p>Cybersecurity professionals use Linux terminals every single day to investigate hacks, run security tools, and manage servers!</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Simulated Terminal</h3>
+            <div class="terminal">
+              <div class="terminal-output" id="terminal-output">Welcome to the simulated Linux terminal. Type 'help' for commands.</div>
+              <div class="terminal-input-wrapper">
+                <span class="prompt">$</span> <input type="text" id="terminal-input" class="terminal-input" />
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="hero-actions" style="margin-top: 30px;">
+            <a href="encryption.html" class="btn-ghost">Previous Activity</a>
+            <a href="activities.html" class="btn-primary" id="next-activity-btn">Finish Module</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    Cybersecurity protects people, not just computers. Keep exploring, stay
+    curious, and use your skills to help others stay safe online.
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="linux_terminal.js"></script>
+</body>
+</html>

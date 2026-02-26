@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cybersecurity Activities | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode");</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-jcode="Complete all 7 activities to earn your ⭐ stars! Real cybersecurity analysts use every skill in this list — passwords, phishing, SQL, XSS, encryption, AND the terminal. You're not just playing, you're training! 💪">
+  <div class="binary-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="computer_literacy.html" class="nav-link"><span>Internet Safety</span></a></li>
+        <li><a href="activities.html" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="cybersecurity.html" class="nav-link"><span>About Cyber</span></a></li>
+        <li><a href="about_beattie.html" class="nav-link"><span>About Beattie</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Welcome, Future Cyber Defenders!</div>
+          <h2 class="section-title">Your Mission: Master Cybersecurity!</h2>
+          <p class="section-subtitle">
+            Hey 8th Graders! Get ready to level up your cyber skills. Each challenge you complete earns a ⭐ and unlocks the next step on your journey. Finish all 7 to become a <strong style="color:var(--accent-green)">Cyber Hero</strong>!
+          </p>
+        </div>
+
+        <!-- Gamification progress bar -->
+        <div class="progress-header" id="progress-header">
+          <div class="progress-info">
+            <div class="progress-title">Your Progress</div>
+            <div class="progress-subtitle" id="progress-subtitle">Loading…</div>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+            </div>
+            <div class="progress-label" id="progress-label">0 / 7 complete</div>
+          </div>
+          <div class="star-tally">
+            <span id="star-display">⭐</span>
+            <span id="star-count">0</span>
+          </div>
+        </div>
+
+        <div class="flow-card">
+          <div class="flow-title">Best Flow for First-Time Learners</div>
+          <ol class="flow-list">
+            <li>Start with Passwords and Phishing (daily life protection).</li>
+            <li>Take the Secure-or-Not quiz to check understanding.</li>
+            <li>Then try SQL, XSS, Encryption, and Linux labs.</li>
+          </ol>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-status" id="status-password_strength">
+              <span class="card-status-icon">🔒</span> <span>Not started</span>
+            </div>
+            <h3>1. Password Strength Tester</h3>
+            <p>Learn how to create strong passwords and test their resilience.</p>
+            <a href="password_strength.html" class="button">Start Activity</a>
+          </article>
+          <article class="card">
+            <div class="card-status" id="status-phishing_detective">
+              <span class="card-status-icon">🔒</span> <span>Not started</span>
+            </div>
+            <h3>2. Phishing Email Detective</h3>
+            <p>Train your eye to spot malicious emails and avoid scams.</p>
+            <a href="phishing_detective.html" class="button">Start Activity</a>
+          </article>
+          <article class="card">
+            <div class="card-status" id="status-secure_or_not_quiz">
+              <span class="card-status-icon">🔒</span> <span>Not started</span>
+            </div>
+            <h3>3. Secure or Not? Quiz</h3>
+            <p>Test your knowledge on secure online practices.</p>
+            <a href="secure_or_not_quiz.html" class="button">Start Activity</a>
+          </article>
+          <article class="card">
+            <div class="card-status" id="status-sql_injection">
+              <span class="card-status-icon">🔒</span> <span>Not started</span>
+            </div>
+            <h3>4. SQL Injection Challenge</h3>
+            <p>Understand how SQL Injection works by trying to bypass a login.</p>
+            <a href="sql_injection.html" class="button">Start Activity</a>
+          </article>
+          <article class="card">
+            <div class="card-status" id="status-xss_challenge">
+              <span class="card-status-icon">🔒</span> <span>Not started</span>
+            </div>
+            <h3>5. XSS Challenge</h3>
+            <p>Discover the dangers of Cross-Site Scripting (XSS) attacks.</p>
+            <a href="xss_challenge.html" class="button">Start Activity</a>
+          </article>
+          <article class="card">
+            <div class="card-status" id="status-encryption">
+              <span class="card-status-icon">🔒</span> <span>Not started</span>
+            </div>
+            <h3>6. Simple Encryption</h3>
+            <p>Explore the basics of cryptography by encrypting and decrypting messages.</p>
+            <a href="encryption.html" class="button">Start Activity</a>
+          </article>
+          <article class="card">
+            <div class="card-status" id="status-linux_terminal">
+              <span class="card-status-icon">🔒</span> <span>Not started</span>
+            </div>
+            <h3>7. Linux Terminal Basics</h3>
+            <p>Get hands-on with basic Linux commands in a simulated terminal.</p>
+            <a href="linux_terminal.html" class="button">Start Activity</a>
+          </article>
+          <article class="card">
+            <div class="card-status done">
+              <span class="card-status-icon">🛡️</span> <span>Life Skill Module</span>
+            </div>
+            <h3>Bonus: Internet Safety & Computer Literacy</h3>
+            <p>Learn safe browsing, privacy settings, and digital citizenship — because cybersecurity is more than hacking.</p>
+            <a href="computer_literacy.html" class="button secondary">Open Guide</a>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    Cybersecurity protects people, not just computers. Keep exploring, stay
+    curious, and use your skills to help others stay safe online.
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    // Gamification: read localStorage and update progress UI
+    const activityKeys = [
+      "password_strength",
+      "phishing_detective",
+      "secure_or_not_quiz",
+      "sql_injection",
+      "xss_challenge",
+      "encryption",
+      "linux_terminal"
+    ];
+
+    const subtitles = [
+      "Just getting started — keep going!",
+      "Nice! You’re making progress!",
+      "Two down, five to go!",
+      "Halfway there — you’re doing great!",
+      "More than halfway! Keep it up!",
+      "Almost there, cyber hero!",
+      "One more to go!",
+      "🎉 All activities complete! You’re a Cyber Hero!"
+    ];
+
+    let completed = 0;
+    activityKeys.forEach(key => {
+      const done = localStorage.getItem(key) === "completed";
+      const el = document.getElementById("status-" + key);
+      if (el) {
+        if (done) {
+          el.classList.add("done");
+          el.innerHTML = '<span class="card-status-icon">⭐</span> <span>Completed!</span>';
+          completed++;
+        } else {
+          el.innerHTML = '<span class="card-status-icon">🔓</span> <span>Not started</span>';
+        }
+      }
+    });
+
+    const pct = Math.round((completed / activityKeys.length) * 100);
+    document.getElementById("progress-bar").style.width = pct + "%";
+    document.getElementById("progress-label").textContent = completed + " / " + activityKeys.length + " complete";
+    document.getElementById("star-count").textContent = completed;
+    document.getElementById("star-display").textContent = completed > 0 ? "⭐" : "☆";
+    document.getElementById("progress-subtitle").textContent = subtitles[completed] || subtitles[0];
+  </script>
+</body>
+</html>

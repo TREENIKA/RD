@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure or Not? Quiz Show | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode");</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-jcode="Did you know? About 95% of cybersecurity breaches are caused by human error — not fancy hacking tools. That means knowing the right habits is literally more powerful than any software. You've got this! 🧠">
+  <div class="binary-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="computer_literacy.html" class="nav-link"><span>Internet Safety</span></a></li>
+        <li><a href="activities.html" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="cybersecurity.html" class="nav-link"><span>About Cyber</span></a></li>
+        <li><a href="about_beattie.html" class="nav-link"><span>About Beattie</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Activity 3: Your Cyber IQ</div>
+          <h2 class="section-title">Secure or Not? Quiz Show!</h2>
+          <p class="section-subtitle">
+            It's quiz time! For each situation, you'll choose the safest option. This helps you think like a cyber pro and make smart choices online. Can you get a perfect score and show off your amazing cyber smarts?
+          </p>
+        </div>
+
+        <div class="eli5-box">
+          <button class="eli5-toggle" aria-expanded="false">
+            🧒 ELI5 — What does “secure” mean online?
+            <em class="eli5-arrow">▼</em>
+          </button>
+          <div class="eli5-body">
+            <p>Being “secure” online is like being <strong>careful in the real world</strong>. You wouldn’t give your house key to a stranger, right? The same thinking applies online!</p>
+            <p><strong>Secure habits include:</strong><br>• Using different passwords for different accounts<br>• Not clicking strange links<br>• Logging out when done on shared computers<br>• Not sharing your personal info with strangers online</p>
+            <p>Cyber pros call this <strong>"security hygiene"</strong> — just like brushing your teeth, you do these things regularly to stay safe!</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Quiz Time!</h3>
+            <ol id="quiz-list" class="quiz-list"></ol>
+            <button id="grade-quiz" class="button">Check my answers</button>
+            <div id="quiz-result" class="result"></div>
+          </article>
+        </div>
+        <div class="hero-actions" style="margin-top: 30px;">
+            <a href="phishing_detective.html" class="btn-ghost">Previous Activity</a>
+            <a href="sql_injection.html" class="btn-primary" id="next-activity-btn">Next Activity: SQL Injection Challenge</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    Cybersecurity protects people, not just computers. Keep exploring, stay
+    curious, and use your skills to help others stay safe online.
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="secure_or_not_quiz.js"></script>
+</body>
+</html>

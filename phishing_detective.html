@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phishing Detective | Cyber Roadshow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode");</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-jcode="Pro tip: Always hover your mouse over a link BEFORE clicking it — the real URL shows up in the bottom of your browser. If it says 'amaz0n-deals.ru' instead of 'amazon.com', it's a trap! 🎣 Real detectives check their sources.">
+  <div class="binary-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" style="text-decoration: none;">
+        <div class="brand">
+          <div class="brand-icon">CY</div>
+          <div class="brand-text">
+            <span class="brand-title">Cyber Roadshow</span>
+            <span class="brand-subtitle">Explore. Protect. Level Up.</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="computer_literacy.html" class="nav-link"><span>Internet Safety</span></a></li>
+        <li><a href="activities.html" class="nav-link"><span>Activities</span></a></li>
+        <li><a href="cybersecurity.html" class="nav-link"><span>About Cyber</span></a></li>
+        <li><a href="about_beattie.html" class="nav-link"><span>About Beattie</span></a></li>
+        <li><a href="careers.html" class="nav-link"><span>Careers</span></a></li>
+        <li><a href="sectors.html" class="nav-link"><span>Public vs Private</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Activity 2: Spot the Sneaky Scams</div>
+          <h2 class="section-title">Phishing Detective!</h2>
+          <p class="section-subtitle">
+            Imagine you're a super-sleuth, and your mission is to uncover tricky emails that try to fool people! We'll show you some emails, and you get to decide: Is this email safe, or is it a sneaky phishing scam trying to trick you into giving away your secrets? Stay sharp, detective!
+          </p>
+        </div>
+
+        <div class="flow-card">
+          <div class="flow-title">How to Play (Beginner Flow)</div>
+          <ol class="flow-list">
+            <li>Read the sender, subject, and link carefully.</li>
+            <li>Choose <strong>safe</strong> or <strong>phishing</strong>.</li>
+            <li>Read the explanation to learn the clue you missed.</li>
+            <li>Click <strong>New email example</strong> and repeat.</li>
+          </ol>
+          <div class="mini-metric">📊 Score: <strong id="phishing-score">0/0</strong></div>
+          <p id="phishing-goal" class="section-subtitle" style="max-width:none; margin-top: 6px;">Get 3 correct to earn your mastery star.</p>
+        </div>
+
+        <div class="eli5-box">
+          <button class="eli5-toggle" aria-expanded="false">
+            🧒 ELI5 — What is phishing and how does it work?
+            <em class="eli5-arrow">▼</em>
+          </button>
+          <div class="eli5-body">
+            <p><strong>Phishing</strong> is when a bad guy sends you a fake email, text, or message that <em>looks real</em> to trick you into clicking a link or giving away your password.</p>
+            <p>Think of it like this: imagine someone dressed as your teacher knocks on your door and says “Give me your homework or you’ll fail!” — but it’s actually a stranger in a costume. That’s phishing!</p>
+            <p><strong>Red flags to look for:</strong></p>
+            <p>• Weird email address (like noreply@am4zon-help.ru)<br>• Urgent scary language like “ACT NOW or your account will be deleted!”<br>• Links that look almost right but have a typo<br>• They ask for your password, credit card, or personal info</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Analyze the Email</h3>
+            <div id="phishing-message" class="phishing-message"></div>
+            <div class="button-row">
+              <button data-answer="safe" class="button secondary">
+                Looks safe
+              </button>
+              <button data-answer="phishing" class="button danger">
+                Looks like phishing
+              </button>
+            </div>
+            <div id="phishing-feedback" class="result"></div>
+            <button id="next-phishing" class="link-button">
+              New email example
+            </button>
+          </article>
+        </div>
+        <div class="hero-actions" style="margin-top: 30px;">
+            <a href="password_strength.html" class="btn-ghost">Previous Activity</a>
+            <a href="secure_or_not_quiz.html" class="btn-primary" id="next-activity-btn">Next Activity: Secure or Not? Quiz</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    Cybersecurity protects people, not just computers. Keep exploring, stay
+    curious, and use your skills to help others stay safe online.
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="phishing_detective.js"></script>
+</body>
+</html>
